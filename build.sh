@@ -1,8 +1,9 @@
 #!/bin/bash
 set -e
-if [ "$2" == "new" ];then
+if [ "$1" == "new" ];then
   repo init -u https://android.googlesource.com/platform/manifest -b android-10.0.0_r41
-  wget https://github.com/aosp-tissot/local_manifest/raw/aosp-10.0/local_manifest.xml .repo/local_manifest.xml
+  mkdir .repo/local_manifests
+  curl -L https://github.com/aosp-tissot/local_manifest/raw/aosp-10.0/local_manifest.xml .repo/local_manifests/local_manifest.xml
   wget https://raw.githubusercontent.com/aosp-tissot/local_manifest/aosp-10.0/patch.sh
   wget https://github.com/phhusson/treble_experimentations/releases/download/v217/patches.zip
   wget https://raw.githubusercontent.com/aosp-tissot/local_manifest/aosp-10.0/patch.zip
@@ -40,12 +41,11 @@ if [ "$2" == "arm64-gapps-go" ];then
    lunch treble_arm64_boN-user
 fi
 if [ "$2" == "arm32-gapps-go" ];then
-treble_arm_aoN-user
+   lunch treble_arm_aoN-user
 fi
 if [ "$2" == "arm64-vanilla" ];then
-treble_arm_aoN-user
+   lunch treble_arm64_bvN-user
 fi
-treble_arm64_bvN
 if [ "$1" == "clean" ];then
    make installclean
 fi

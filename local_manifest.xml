@@ -40,6 +40,7 @@
 <project path="vendor/vndk-tests" name="vendor_vndk-tests" remote="phh" revision="master" />
 <project path="vendor/interfaces" name="vendor_interfaces" remote="phh" revision="pie" />
 <project path="vendor/magisk" name="phhusson/vendor_magisk" remote="github" revision="master" />
+<project path="vendor/google" name="gmsexpress" revision="master" remote="gms-mirror" />
 
 <!-- exfat support -->
 <remote name="relan" fetch="https://github.com/relan/" />
